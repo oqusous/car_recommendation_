@@ -123,3 +123,6 @@ config.py
 
 # pickles
 *.p
+
+#Annoy
+*.ann
