@@ -9,6 +9,11 @@ import plotly.graph_objects as go
 import streamlit as st
 import plotly.express as px
 from PIL import Image
+import requests
+from io import BytesIO
+from selenium import webdriver
+from annoy import AnnoyIndex
+import random
 # df_for_brands = pkl.load(open('df_pickles/df_reg_1.p','rb'))
 # df_for_brands.drop('price',1,inplace=True)
 # df_for_brands_gas = df_for_brands[df_for_brands['Engine type']!='Electric']
@@ -49,28 +54,42 @@ image = Image.open('images/enzo.jpg')
 st.image(image, caption='', use_column_width=False)
 st.title('Car Recommender')
 
-st.write('''Enter your favorite car brand and model to get other cars with similar specs.''')
+st.write('''Enter your favorite car brand and model and get car recommendations.''')
 
-
-option1 = st.selectbox("Car brand",options = list(set(df_for_brands_gas['brand'])))
+option1 = st.selectbox("Select car brand",options = list(set(df_for_brands_gas['brand'])))
 option1a = option1
 
-option2 = st.selectbox("Model",options= list(set(df_for_brands_gas[df_for_brands_gas['brand']==option1a]['model'])))
+st.markdown('\n')
+
+option2 = st.selectbox("Select the model",options= list(set(df_for_brands_gas[df_for_brands_gas['brand']==option1a]['model'])))
+first= option1a.lower()
+sec= option2.lower()
+driver = webdriver.Chrome('/Users/flatironschool/Desktop/chromedriver')
+car_values='http://www.kbb.com/{}/{}'.format(first, sec)
+driver.get(car_values)
+try:
+    url = driver.find_element_by_css_selector('section[data-analytics="overview"]').find_element_by_tag_name('img').get_attribute('src')
+    response = requests.get(url)
+    img = Image.open(BytesIO(response.content))
+    st.image(img, caption='', use_column_width=False)
+except:
+    st.markdown('Sorry, no image available')
+    pass
+
+st.markdown('\n')
 
 fig = px.scatter_3d(df_plot, x='Dimension 1', y='Dimension 2', z='Dimension 3', color='labels',  title="""Three Component SVD Transformed Plot of Car Recommender Features Clustered with KAlgg""", height=1000, width=1000 ,hover_data=df_plot[['index']])
 st.write(fig)
 
+st.markdown('\n')
+
 svd = TruncatedSVD(n_components=11)
 df_Annoy_svd = svd.fit_transform(df_gas_mod.iloc[:,:-1])
-from annoy import AnnoyIndex
-import random
-
-f = df_Annoy_svd.shape[1] # Length of item vector that will be indexed
+f = df_Annoy_svd.shape[1]
 t = AnnoyIndex(f, metric = 'angular')  
 for i in range(df_Annoy_svd.shape[0]):
     v = df_Annoy_svd[i]
     t.add_item(i, v)
-
 t.build(15)
 t.save('test.ann')
 
@@ -78,11 +97,12 @@ st.write(df_for_brands_gas[(df_for_brands_gas['brand']==option1) & (df_for_brand
 
 index = df_for_brands_gas[(df_for_brands_gas['brand']==option1) & (df_for_brands_gas['model']==option2)][['brand','model','Torque','Passenger Capacity', 'price', 'trim']]
 
-st.write('\n')
+st.markdown('\n')
 
-option3 = st.selectbox("Choose trim",options= list(index.index))
-
+option3 = st.selectbox("Choose trim from list above to get recommendations on car with similar characteristics",options= list(index.index))
 option3a = option3
+
+st.markdown('\n')
 
 def update_output2(input3):
     n=25
@@ -98,4 +118,21 @@ def update_output2(input3):
         print(cars)
     return df.iloc[1:,:]
 
-st.write(update_output2(option3a))
+nns = update_output2(option3a)
+st.write(nns)
+
+st.markdown('\n')
+
+first1= st.selectbox("Car brand",options = list(set(nns['brand'])))
+first1a=first1
+sec1= st.selectbox("Model",options= list(set(nns[nns['brand']==first1a]['model'])))
+car2='http://www.kbb.com/{}/{}'.format(first1.lower(), sec1.lower())
+driver.get(car2)
+try:
+    url = driver.find_element_by_css_selector('section[data-analytics="overview"]').find_element_by_tag_name('img').get_attribute('src')
+    response = requests.get(url)
+    img = Image.open(BytesIO(response.content))
+    st.image(img, caption='', use_column_width=False)
+except:
+    st.markdown('Sorry, no image available')
+    pass
