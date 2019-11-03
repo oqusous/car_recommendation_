@@ -14,6 +14,7 @@ from io import BytesIO
 from selenium import webdriver
 from annoy import AnnoyIndex
 import random
+from selenium.webdriver.chrome.options import Options
 # df_for_brands = pkl.load(open('df_pickles/df_reg_1.p','rb'))
 # df_for_brands.drop('price',1,inplace=True)
 # df_for_brands_gas = df_for_brands[df_for_brands['Engine type']!='Electric']
@@ -64,17 +65,20 @@ st.markdown('\n')
 option2 = st.selectbox("Select the model",options= list(set(df_for_brands_gas[df_for_brands_gas['brand']==option1a]['model'])))
 first= option1a.lower()
 sec= option2.lower()
-driver = webdriver.Chrome('/Users/flatironschool/Desktop/chromedriver')
-car_values='http://www.kbb.com/{}/{}'.format(first, sec)
-driver.get(car_values)
-try:
-    url = driver.find_element_by_css_selector('section[data-analytics="overview"]').find_element_by_tag_name('img').get_attribute('src')
-    response = requests.get(url)
-    img = Image.open(BytesIO(response.content))
-    st.image(img, caption='', use_column_width=False)
-except:
-    st.markdown('Sorry, no image available')
-    pass
+# options = Options()
+# options.add_argument('--headless')
+# options.add_argument('--disable-gpu')
+# driver = webdriver.Chrome('/Users/flatironschool/Desktop/chromedriver')
+# car_values='http://www.kbb.com/{}/{}'.format(first, sec)
+# driver.get(car_values)
+# try:
+#     url = driver.find_element_by_css_selector('section[data-analytics="overview"]').find_element_by_tag_name('img').get_attribute('src')
+#     response = requests.get(url)
+#     img = Image.open(BytesIO(response.content))
+#     st.image(img, caption='', use_column_width=False)
+# except:
+#     st.markdown('Sorry, no image available')
+#     pass
 
 st.markdown('\n')
 
@@ -91,7 +95,7 @@ for i in range(df_Annoy_svd.shape[0]):
     v = df_Annoy_svd[i]
     t.add_item(i, v)
 t.build(15)
-t.save('test.ann')
+# t.save('test.ann')
 
 st.write(df_for_brands_gas[(df_for_brands_gas['brand']==option1) & (df_for_brands_gas['model']==option2)][['brand','model','Torque','Passenger Capacity', 'price', 'trim']])
 
@@ -123,16 +127,17 @@ st.write(nns)
 
 st.markdown('\n')
 
-first1= st.selectbox("Car brand",options = list(set(nns['brand'])))
-first1a=first1
-sec1= st.selectbox("Model",options= list(set(nns[nns['brand']==first1a]['model'])))
-car2='http://www.kbb.com/{}/{}'.format(first1.lower(), sec1.lower())
-driver.get(car2)
-try:
-    url = driver.find_element_by_css_selector('section[data-analytics="overview"]').find_element_by_tag_name('img').get_attribute('src')
-    response = requests.get(url)
-    img = Image.open(BytesIO(response.content))
-    st.image(img, caption='', use_column_width=False)
-except:
-    st.markdown('Sorry, no image available')
-    pass
+# first1= st.selectbox("Car brand",options = list(set(nns['brand'])))
+# first1a=first1
+# sec1= st.selectbox("Model",options= list(set(nns[nns['brand']==first1a]['model'])))
+# car2='http://www.kbb.com/{}/{}'.format(first1.lower(), sec1.lower())
+# driver.get(car2)
+# try:
+#     url = driver.find_element_by_css_selector('section[data-analytics="overview"]').find_element_by_tag_name('img').get_attribute('src')
+#     response = requests.get(url)
+#     img = Image.open(BytesIO(response.content))
+#     st.image(img, caption='', use_column_width=False)
+# except:
+#     st.markdown('Sorry, no image available')
+#     pass
+# driver.close()

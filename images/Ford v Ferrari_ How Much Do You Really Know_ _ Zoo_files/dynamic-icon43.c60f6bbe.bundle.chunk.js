@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[40],{OZRb:function(e,n){e.exports='<svg enable-background="new 0 0 25 19" viewBox="0 0 25 19" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="m518.3 53h12.5l6.2 6.4-12.5 12.6-12.5-12.6z" fill="#747882" fill-rule="evenodd" transform="translate(-512 -53)"/></svg>'}}]);
-//# sourceMappingURL=dynamic-icon43.c60f6bbe.bundle.chunk.js.map
