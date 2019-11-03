@@ -23,7 +23,9 @@ Missing data mainly handled using KNN Classifier and Regressor
 ## Modelling
 Clustering:
 KMeans
+<img src=images/3d_plot1.png alt="3D PCA K Means plot" width="600"/>
 KAgglomerativeClustering
+<img src=images/3d_plot2.png alt="3D PCA K Agglomerative Clustering plot" width="600"/>
 Annoy - Spotify made
 Clusters, k, varied between 20-250; k=110 gave best results.
 Ward linkage in KAgglomerativeClustering parameter outperformed the rest of the available methods.
