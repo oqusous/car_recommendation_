@@ -1,7 +1,9 @@
 # Car Recommender
-All models and trims of 43 Car brands - 2234 in total
 
-<img src=images/trim_model.png alt="Example of a Brand/Model/Trim" width="600"/>
+## Data Source
+Two websites were scraped using Beautiful Soup and Selenium for all models and trims of 43 Car brands - 2234 in total.
+
+<img src=images/trim_model.png title="Example of a Brand/Model/Trim" width="600"/>
 
 ## Feature Engineering
 Physical: external and internal dimensions and weight of the car
