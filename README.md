@@ -1,5 +1,5 @@
 
-<figure># Car Recommender
+# Car Recommender
 
 ## Function
 
@@ -19,13 +19,13 @@ Performance: Horsepower, Cylinders, Torque and Gear Ratios
 Value: Price
 Engine type: Fuel Capacity, Hybrid or Gas and miles/gallon
 Total- 35 features
-Domain knowledge selection
-Continuous Features:
-MinMaxScaler
-Feature interaction: interior space and gear ratios
-Categorical
-Dummies for passenger capacity, engine type, number of cylinders, etc..
-Missing data mainly handled using KNN Classifier and Regressor
+Features were selected based on domain knowledge.
+Continuous Features were:
+1. Scaled using MinMaxScaler.
+2. and for some, feature interaction was utilized eg. interior space and shift gear ratios.
+Categorical were:
+1. Dummied for passenger capacity, engine type, number of cylinders, etc..
+2. Missing data mainly handled using KNN Classifier and Regressor
 
 <figure>
 <img src=images/gas_heatmap.png alt="Feature heatmap plot" width="600"/>
@@ -40,7 +40,7 @@ Missing data mainly handled using KNN Classifier and Regressor
 ## Modelling
 All methods used were unsupervised nearest neighbour clustering algorithms:
 
-1. sklearn's KMeans 
+|                         |                    |1. sklearn's KMeans 
 
 <figure>
 <img src=images/3d_plot1.png alt="3D PCA K Means plot" width="600"/>
@@ -50,7 +50,7 @@ All methods used were unsupervised nearest neighbour clustering algorithms:
 2. sklearn's KAgglomerativeClustering
 
 <figure>
-<img src=images/3d_plot2.png alt="3D PCA K Agglomerative Clustering plot" width="600"/>
+<img src=images|                         |                    |/3d_plot2.png alt="3D PCA K Agglomerative Clustering plot" width="600"/>
   <figcaption>Fig5. - 3D feature PCA K Agglomerative Clustering plot.</figcaption>
 </figure>
 
@@ -80,8 +80,9 @@ Summary of Calinski Harabasz scores and Silhouette scores shown in the table bel
 |KAgglomerativeClustering (k=110,linkage = average)   | 428                     | 0.58               |
 |KAgglomerativeClustering (k=110,linkage = complete)  | 475                     | 0.53               |
 |PCA 15 Components with KAgglomerativeClustering      | 730                     | 0.48               |
-|(cummulative sum of explained variance equaled 95%)  |                         |                    |
-|
+|(cummulative sum of explained variance ratio         |                         |                    |
+|equaled 95%)                                         |                         |                    |
+
 ## Conclusion and Future Improvements
 The Annoy model acheived best results and the algorithim was integrated into a front end streamlit script. This was determined through examining different examples of cars input into the Annoy vs KAgglomerativeClustering (k=110,linkage = complete) vs PCA 15 Components with KAgglomerativeClustering models.
 
