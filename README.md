@@ -16,7 +16,6 @@ Two websites were scraped using Beautiful Soup and Selenium for all models and t
 
 ## Feature Engineering
 <p> 
-  
   <ul type="disc">
   Feature list:
     <il> Physical: external and internal dimensions and weight of the car</il>
@@ -38,7 +37,7 @@ Features were selected based on domain knowledge.
   <il>Dummied for passenger capacity, engine type, number of cylinders, etc..</il>
   <il>Missing data were mainly handled using KNN Classifier.</il>
 </ol>
-
+</p>
 <figure>
 <img src=images/gas_heatmap.png alt="Feature heatmap plot" width="600"/>
   <figcaption>Fig2. - Feature heatmap plot.</figcaption>
