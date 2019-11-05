@@ -1,4 +1,3 @@
-
 # Car Recommender
 
 ## Function
@@ -23,9 +22,10 @@ Features were selected based on domain knowledge.
 Continuous Features were:
 1. Scaled using MinMaxScaler.
 2. and for some, feature interaction was utilized eg. interior space and shift gear ratios.
+3. Missing data were mainly handled using KNN Regressor.
 Categorical were:
 1. Dummied for passenger capacity, engine type, number of cylinders, etc..
-2. Missing data mainly handled using KNN Classifier and Regressor
+2. Missing data were mainly handled using KNN Classifier.
 
 <figure>
 <img src=images/gas_heatmap.png alt="Feature heatmap plot" width="600"/>
@@ -40,7 +40,7 @@ Categorical were:
 ## Modelling
 All methods used were unsupervised nearest neighbour clustering algorithms:
 
-|                         |                    |1. sklearn's KMeans 
+1. sklearn's KMeans 
 
 <figure>
 <img src=images/3d_plot1.png alt="3D PCA K Means plot" width="600"/>
@@ -50,7 +50,7 @@ All methods used were unsupervised nearest neighbour clustering algorithms:
 2. sklearn's KAgglomerativeClustering
 
 <figure>
-<img src=images|                         |                    |/3d_plot2.png alt="3D PCA K Agglomerative Clustering plot" width="600"/>
+<img src=images/3d_plot2.png alt="3D PCA K Agglomerative Clustering plot" width="600"/>
   <figcaption>Fig5. - 3D feature PCA K Agglomerative Clustering plot.</figcaption>
 </figure>
 
