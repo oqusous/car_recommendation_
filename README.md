@@ -26,7 +26,7 @@ Two websites were scraped using Beautiful Soup and Selenium for all models and t
   </ul>
 Total- 35 features
 </p>
-<br>
+<br></br>
 <p>
 Features were selected based on domain knowledge.
 <ol>Continuous Features were:
@@ -43,12 +43,12 @@ Features were selected based on domain knowledge.
 <img src=images/gas_heatmap.png alt="Feature heatmap plot" width="600"/>
   <figcaption>Fig2. - Feature heatmap plot.</figcaption>
 </figure>
-<br>
+<br></br>
 <figure>
 <img src=images/pairplots_gas.png alt="Feature pair plot" width="600"/>
   <figcaption>Fig3. - Feature pair plot.</figcaption>
 </figure>
-<br>
+<br></br>
 ## Modelling
 All methods used were unsupervised nearest neighbour clustering algorithms:
 
