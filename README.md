@@ -3,7 +3,10 @@
 ## Data Source
 Two websites were scraped using Beautiful Soup and Selenium for all models and trims of 43 Car brands - 2234 in total.
 
+<figure>
 <img src=images/trim_model.png title="Example of a Brand/Model/Trim" width="600"/>
+  <figcaption>Fig1. - Example of a Brand/Model/Trim.</figcaption>
+</figure>
 
 ## Feature Engineering
 Physical: external and internal dimensions and weight of the car
