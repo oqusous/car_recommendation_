@@ -17,10 +17,10 @@
 
 ## Feature Engineering
 Feature list:
-  *Physical: external and internal dimensions and weight of the car.
-  *Performance: Horsepower, Cylinders, Torque and Gear Ratios.
-  *Value: Price.
-  *Engine type: Fuel Capacity, Hybrid or Gas and miles/gallon.
+  * Physical: external and internal dimensions and weight of the car.
+  * Performance: Horsepower, Cylinders, Torque and Gear Ratios.
+  * Value: Price.
+  * Engine type: Fuel Capacity, Hybrid or Gas and miles/gallon.
 Total- 35 features
 <br></br>
 Features were selected based on domain knowledge.
@@ -97,8 +97,8 @@ Summary of Calinski Harabasz scores and Silhouette scores shown in the table bel
 The Annoy model acheived best results and the algorithim was integrated into a front end streamlit script. This was determined through examining different examples of cars input into the Annoy vs KAgglomerativeClustering (k=110,linkage = complete) vs PCA 15 Components with KAgglomerativeClustering models.
 
 Improvements:
-  *Integrate electric cars and 2020 models.
-  *Find other data sources to scrape for cars that required more KNN predictions.
-  *Hybrid recommender with user and expert ratings.
-  *Formulate value for options like infotainment system and interior material quality.
+  * Integrate electric cars and 2020 models.
+  * Find other data sources to scrape for cars that required more KNN predictions.
+  * Hybrid recommender with user and expert ratings.
+  * Formulate value for options like infotainment system and interior material quality.
 
