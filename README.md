@@ -16,32 +16,22 @@
 </figure>
 
 ## Feature Engineering
-<p> 
-  <ul type="disc">
-  Feature list:
-    <il> Physical: external and internal dimensions and weight of the car</il>
-    <il>Performance: Horsepower, Cylinders, Torque and Gear Ratios</il>
-    <il>Value: Price</il>
-    <il>Engine type: Fuel Capacity, Hybrid or Gas and miles/gallon</il>
-  </ul>
-  Total- 35 features
-</p>
-
+Feature list:
+  *Physical: external and internal dimensions and weight of the car.
+  *Performance: Horsepower, Cylinders, Torque and Gear Ratios.
+  *Value: Price.
+  *Engine type: Fuel Capacity, Hybrid or Gas and miles/gallon.
+Total- 35 features
 <br></br>
-
-<p>
-  Features were selected based on domain knowledge.
-  <ol>Continuous Features were:
-    <il>Scaled using MinMaxScaler.</il>
-    <il>and for some, feature interaction was utilized eg. interior space and shift gear ratios.</il>
-    <il>Missing data were mainly handled using KNN Regressor.</il>
-  </ol>
+Features were selected based on domain knowledge.
+ Continuous Features were:
+  1. Scaled using MinMaxScaler.
+  2. and for some, feature interaction was utilized eg. interior space and shift gear ratios.
+  3. Missing data were mainly handled using KNN Regressor.
   
-  <ol> Categorical were:
-    <il>Dummied for passenger capacity, engine type, number of cylinders, etc..</il>
-    <il>Missing data were mainly handled using KNN Classifier.</il>
-  </ol>
-</p>
+  Categorical were:
+  1. Dummied for passenger capacity, engine type, number of cylinders, etc..
+  2. Missing data were mainly handled using KNN Classifier.
 
 <figure>
   <img src=images/gas_heatmap.png alt="Feature heatmap plot" width="600"/>
@@ -107,8 +97,8 @@ Summary of Calinski Harabasz scores and Silhouette scores shown in the table bel
 The Annoy model acheived best results and the algorithim was integrated into a front end streamlit script. This was determined through examining different examples of cars input into the Annoy vs KAgglomerativeClustering (k=110,linkage = complete) vs PCA 15 Components with KAgglomerativeClustering models.
 
 Improvements:
-● Integrate electric cars and 2020 models.
-● Find other data sources to scrape for cars that required more KNN predictions.
-● Hybrid recommender with user and expert ratings.
-● Formulate value for options like infotainment system and interior material quality.
+  *Integrate electric cars and 2020 models.
+  *Find other data sources to scrape for cars that required more KNN predictions.
+  *Hybrid recommender with user and expert ratings.
+  *Formulate value for options like infotainment system and interior material quality.
 
