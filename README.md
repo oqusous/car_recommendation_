@@ -1,42 +1,54 @@
 # Car Recommender
 
 ## Function
-
+<p>
 Using Spotify's Annoy Library, a content based car recommender is created. The user inputs a favourite car of theirs and the model gives recommendations of different car brands/models/trims based on the characteristics of the given car. 
+</p>
 
 ## Data Source
+<p>
 Two websites were scraped using Beautiful Soup and Selenium for all models and trims of 43 Car brands - 2234 in total.
-
+</p>
 <figure>
 <img src=images/trim_model.png title="Example of a Brand/Model/Trim" width="600"/>
   <figcaption>Fig1. - Example of a Brand/Model/Trim.</figcaption>
 </figure>
 
 ## Feature Engineering
-Physical: external and internal dimensions and weight of the car
-Performance: Horsepower, Cylinders, Torque and Gear Ratios
-Value: Price
-Engine type: Fuel Capacity, Hybrid or Gas and miles/gallon
+<p> 
+  
+  <ul type="disc">
+  Feature list:
+    <il> Physical: external and internal dimensions and weight of the car</il>
+    <il>Performance: Horsepower, Cylinders, Torque and Gear Ratios</il>
+    <il>Value: Price</il>
+    <il>Engine type: Fuel Capacity, Hybrid or Gas and miles/gallon</il>
+  </ul>
 Total- 35 features
+</p>
+<br>
+<p>
 Features were selected based on domain knowledge.
-Continuous Features were:
-1. Scaled using MinMaxScaler.
-2. and for some, feature interaction was utilized eg. interior space and shift gear ratios.
-3. Missing data were mainly handled using KNN Regressor.
-Categorical were:
-1. Dummied for passenger capacity, engine type, number of cylinders, etc..
-2. Missing data were mainly handled using KNN Classifier.
+<ol>Continuous Features were:
+  <il>Scaled using MinMaxScaler.</il>
+  <il>and for some, feature interaction was utilized eg. interior space and shift gear ratios.</il>
+  <il>Missing data were mainly handled using KNN Regressor.</il>
+</ol>
+<ol> Categorical were:
+  <il>Dummied for passenger capacity, engine type, number of cylinders, etc..</il>
+  <il>Missing data were mainly handled using KNN Classifier.</il>
+</ol>
 
 <figure>
 <img src=images/gas_heatmap.png alt="Feature heatmap plot" width="600"/>
   <figcaption>Fig2. - Feature heatmap plot.</figcaption>
 </figure>
-
+<br>
 <figure>
 <img src=images/pairplots_gas.png alt="Feature pair plot" width="600"/>
   <figcaption>Fig3. - Feature pair plot.</figcaption>
 </figure>
-
+<br>
 ## Modelling
 All methods used were unsupervised nearest neighbour clustering algorithms:
 
