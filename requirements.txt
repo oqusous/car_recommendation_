@@ -5,4 +5,4 @@ annoy
 sklearn
 plotly
 streamlit
-Image
+pillow
