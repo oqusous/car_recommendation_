@@ -1,6 +1,5 @@
 pandas
 numpy
-pickle
 matplotlib
 annoy
 sklearn
@@ -8,4 +7,3 @@ plotly
 streamlit
 PIL
 io
-random
