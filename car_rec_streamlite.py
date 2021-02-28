@@ -8,7 +8,7 @@ from sklearn.decomposition import TruncatedSVD
 import plotly.graph_objects as go
 import streamlit as st
 import plotly.express as px
-import Image
+from PIL import Image
 import requests
 from io import BytesIO
 # from selenium import webdriver
