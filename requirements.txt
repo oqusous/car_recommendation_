@@ -5,5 +5,4 @@ annoy
 sklearn
 plotly
 streamlit
-PIL
-io
+Image
