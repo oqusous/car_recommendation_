@@ -11,10 +11,10 @@ import plotly.express as px
 from PIL import Image
 import requests
 from io import BytesIO
-from selenium import webdriver
+# from selenium import webdriver
 from annoy import AnnoyIndex
 import random
-from selenium.webdriver.chrome.options import Options
+# from selenium.webdriver.chrome.options import Options
 # df_for_brands = pkl.load(open('df_pickles/df_reg_1.p','rb'))
 # df_for_brands.drop('price',1,inplace=True)
 # df_for_brands_gas = df_for_brands[df_for_brands['Engine type']!='Electric']
