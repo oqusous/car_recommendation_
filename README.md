@@ -1,5 +1,8 @@
 # Car Recommender
 
+Access the app using the link below:
+https://share.streamlit.io/oqusous/car_recommendation_/car_rec_streamlite.py
+
 ## Function
 <p>
   Using Spotify's Annoy Library, a content based car recommender is created. The user inputs a favourite car of theirs and the model gives recommendations of different car brands/models/trims based on the characteristics of the given car. 
