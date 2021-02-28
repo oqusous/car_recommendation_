@@ -51,7 +51,7 @@ df_plot = pkl.load(open('df_pickles/df_plot_streamlite.p', 'rb'))
 df_plot['index'] = list(df_plot.index)
 df_plot.rename(columns={'x':'Dimension 1', 'y':'Dimension 2', 'z':'Dimension 3'}, inplace=True)
 
-image = Image.open('images/enzo.jpg')
+image = Image.open('images/enzo_resized.jpg')
 st.image(image, caption='', use_column_width=False)
 st.title('Car Recommender')
 
